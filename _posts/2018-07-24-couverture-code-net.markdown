@@ -33,13 +33,13 @@ si toutes les clauses ```catch``` sont testées, etc.
 
 Et pourtant cette métrique est difficile à obtenir dans Visual Studio (ou VS Code) pour le commun des mortels,
 sauf si vous avez une licence Entreprise 💶 ou si vous utilisez une plateforme d'intégration continue comme 
-VSTS avec des builds bien configurés 😇.
+<del>VSTS</del> Azure DevOps avec des builds bien configurés 😇.
 
 Heureusement la communauté fournit des initiatives ouvertes permettant d'obtenir ces informations à moindre
 frais. Voici une solution, parmi les multiples options disponibles, utilisant une combinaison de deux outils
 open source.
 
-## AltCover
+## Analyser le code avec AltCover
 
 [AltCover](https://github.com/SteveGilham/altcover) va d'abord 
 lancer vos tests unitaires, les analyser et produire un ficher
@@ -48,7 +48,7 @@ de couverture de code ```coverage.xml```.
 On peut installer cet outil dans son projet de tests avec NuGet :
 
 ```powershell
-cd ...MonProjet.Tests
+cd [...]\MonProjet.Tests
 
 dotnet add package AltCover
 ```
@@ -62,7 +62,7 @@ dotnet test /p:AltCover=true
 Le framework de tests unitaires utilisé importe peu, tant qu'il
 peut être lancé avec ```dotnet test```.
 
-## ReportGenerator
+## Voir le rapport avec ReportGenerator
 
 Le fichier généré par AltCover est un fichier XML au format OpenCover.
 Diffilement lisible par un être humain, il peut être transformé en pages HTML
@@ -86,7 +86,7 @@ Get-ChildItem $env:USERPROFILE\.nuget\packages\reportgenerator -Recurse -File `
 Enfin lancer la génération du rapport HTML :
 
 ```powershell
-c:\...ReportGenerator.exe -reports:coverage.xml -targetdir:./coverage
+c:\[...]\ReportGenerator.exe -reports:coverage.xml -targetdir:./coverage
 ```
 
 Le rapport est alors accessible dans ```./coverage/index.htm```.
