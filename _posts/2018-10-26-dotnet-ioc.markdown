@@ -28,7 +28,7 @@ Mais le code ci-après fonctionne également sur toutes les plateformes compatib
 
 La première étape est d'instancer un objet `ServiceCollection` qui va nous permettre de configurer l'injection – exactement comme on le ferait dans une application ASP.NET Core classique.
 
-```C#
+```cs
 var servicesCollection = new ServicesCollection();
 ```
 
@@ -38,7 +38,7 @@ Une fois cet objet instancié, vous pouvez utiliser exactement les mêmes métho
 
 Imaginons par exemple une interface `ICustomerRepository` et l'implémentation correspondante `CustomerRepository`. Voici comment elle pourrait être configurée dans `ServiceCollection` :
 
-```C#
+```cs
 servicesCollection.AddSingleton<ICustomerRepository, CustomerRepository>();
 ```
 
@@ -46,7 +46,7 @@ servicesCollection.AddSingleton<ICustomerRepository, CustomerRepository>();
 
 Imaginons maintenant un `BillingService` qui a besoin d'une instance de `ICustomerRepository`. Pour pouvoir utiliser cette instance, il faut la déclarer dans le constructeur :
 
-```C#
+```cs
 public class BillingService
 {
     public BillingService(ICustomerRepository customerRepository) 
@@ -62,7 +62,7 @@ Comment ça 🤔 ?
 
 La `ServiceCollection` créée plus haut fournit une méthode `BuildServiceProvider` qui retourne un provider capable de nous instancier les objets __et__ leurs dépendances de manière automatique.
 
-```C#
+```cs
 var services = serviceCollection.BuildServiceProvider();
 var billingService = services.GetRequiredService<BillingService>();
 ```
@@ -71,7 +71,7 @@ L'instance `billingService` est créée dynamiquement et son champ `customerRepo
 
 Il faut également au préalable déclarer notre `BillingService` dans la `ServiceCollection` :
 
-```C#
+```cs
 serviceCollection.AddSingleton<BillingService>();
 ```
 
@@ -95,7 +95,7 @@ Un bon vieux code lasagne comme on les aime 🙂🍕.
 
 Si on met tout les morceaux ensemble, on obtient ceci :
 
-```C#
+```cs
 private static IServiceProvider ConfigureServices()
 {
     var serviceCollection = new ServiceCollection();
@@ -109,7 +109,7 @@ private static IServiceProvider ConfigureServices()
 
 Dans notre Azure Function, à l'endroit où on a besoin d'une instance de `BillingService` :
 
-```C#
+```cs
 private static readonly IServiceProvider services = ConfigureServices();
 private static readonly BillingService billingService = services.GetRequiredService<BillingService>();
 ```
