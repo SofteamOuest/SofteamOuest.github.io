@@ -15,11 +15,11 @@ Dans notre cas, nous utilisons Skaffold pour déployer des applications packagé
 
 La documentation de Skaffold est disponible sur le site [Skaffold](https://skaffold.dev/).
 
-Skaffold fournit différents [exemples de configuration](https://github.com/GoogleContainerTools/skaffold/tree/master/examples) pour des stacks techniques variées. 
+Skaffold fournit différents [exemples de configuration](https://github.com/GoogleContainerTools/skaffold/tree/master/examples) pour des stacks techniques variées (exemple : java/maven, javascript/node.js, ...). 
 
 La configuration de Skaffold se fait via des fichiers yaml (syntaxe similaire au Manifest Kubernetes).
 
-Exemple de configuration Skaffold extrait du dépôt [books-api](https://github.com/SofteamOuest-Opus/books-api): 
+Voici un exemple de configuration Skaffold extrait du dépôt [books-api](https://github.com/SofteamOuest-Opus/books-api): 
 
 ```yaml
 apiVersion: skaffold/v1beta1
@@ -48,7 +48,7 @@ deploy:
  * [2] Utilisation de [jib](https://github.com/GoogleContainerTools/jib) pour le build de l'image Docker   
  * [3] Nom de la release Helm à déployer
  * [4] Chemin vers le chart Helm à déployer
- * [5] Définition de values à passer au déploiement du chart (référence des clefs par un chemin yaml)
+ * [5] Définition de values à passer au déploiement du chart (clefs référencées par leurs chemins yaml)
  * [6] Choix du schéma de génération du TAG (TAG = Digest sha256 de l'image)
  * [7] Définition de values qui surchargent les values du chart (clefs hiéarchiques comme yaml)
 
@@ -80,7 +80,7 @@ Pour intégrer jib dans skaffold, il suffit de :
 
 De cette manière le couple Skaffold/jib gère la construction optimisée de l'image Docker : il n'est pas nécessaire de définir le fichier Dockerfile.
 
-Pour simplifier la structure des Jenkinsfile, nous avons malgré tout intégré un Dockerfile au projet : 
+Pour simplifier la structure des Jenkinsfile (et faire du docker first), nous avons malgré tout intégré un Dockerfile au projet : 
 
 * Le Jenkinsfile construit l'image Docker (en utilisant le Dockerfile). 
 * Le Dockerfile définit les étapes de build de l'image Docker.
@@ -89,8 +89,21 @@ Remarque : Avant de faire ce choix, nous faisions du maven first. Dans ce contex
 
 ## Execution de Skaffold
  
-Skaffold est un outil ligne de commande. Pour démarrer le cycle de BUILD/DEPLOY automatique sur le poste de développeur, il suffit d'exécuter la commande suivante :
+Skaffold est un outil ligne de commande. 
 
+Voici les commandes à exécuter pour : 
+
+* Déployer l'application en continu
 ```bash
 # skaffold dev
+```
+
+* Déployer l'application
+```bash
+# skaffold deploy
+```
+
+* Supprimer l'application
+```bash
+# skaffold delete
 ```
