@@ -7,7 +7,7 @@ description: Kubernetes - Skaffold
 toc: false
 ---
 
-[Skaffold](https://skaffold.dev/) est un outil qui améliore l'expérience du développeur [Kubernetes](https://kubernetes.io/). A chaque fois que le développeur d'une Application modifie les sources de l'application, Skaffold reconstruit l'image [Docker](https://www.docker.com/) et redéploie l'application (via déploiement des fichiers de configuration [d'objets Kubernetes]()https://kubernetes.io/docs/concepts/overview/object-management-kubectl/overview/).  
+[Skaffold](https://skaffold.dev/) est un outil qui améliore l'expérience du développeur [Kubernetes](https://kubernetes.io/). A chaque fois que le développeur d'une Application modifie les sources de l'application, Skaffold reconstruit l'image [Docker](https://www.docker.com/) et redéploie l'application (via déploiement des fichiers de configuration [d'objets Kubernetes](https://kubernetes.io/docs/concepts/overview/object-management-kubectl/overview/).  
 
 Dans notre cas, nous utilisons Skaffold pour déployer des applications packagées dans des charts [Helm](https://helm.sh). 
 
