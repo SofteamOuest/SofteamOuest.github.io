@@ -15,7 +15,7 @@ Dans notre cas, nous utilisons Skaffold pour déployer des applications packagé
 
 La documentation de Skaffold est disponible sur le site [Skaffold](https://skaffold.dev/).
 
-Skaffold fournit différents [exemples de configuration](https://github.com/GoogleContainerTools/skaffold/tree/master/examples)pour des stacks techniques variées. 
+Skaffold fournit différents [exemples de configuration](https://github.com/GoogleContainerTools/skaffold/tree/master/examples) pour des stacks techniques variées. 
 
 La configuration de Skaffold se fait via des fichiers yaml (syntaxe similaire au Manifest Kubernetes).
 
