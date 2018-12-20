@@ -19,7 +19,7 @@ Skaffold fournit différents [exemples de configuration](https://github.com/Goog
 
 La configuration de Skaffold se fait via des fichiers yaml (syntaxe similaire aux fichiers de configuration Kubernetes).
 
-Voici un exemple de configuration Skaffold extrait du dépôt [books-api](https://github.com/SofteamOuest-Opus/books-api): 
+Voici un exemple de configuration Skaffold extrait du dépôt GIT [books-api](https://github.com/SofteamOuest-Opus/books-api): 
 
 ```yaml
 apiVersion: skaffold/v1beta1
