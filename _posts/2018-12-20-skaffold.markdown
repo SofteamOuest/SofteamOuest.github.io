@@ -4,10 +4,8 @@ date: 2018-12-20 00:00:00 +001
 layout: post
 author: Mehdi EL KOUHEN
 description: Kubernetes - Skaffold
-excerpt_separator: "<!--more-->"
+toc: false
 ---
-
-# Skaffold
 
 [Skaffold](https://skaffold.dev/) est un outil qui améliore l'expérience du développeur [Kubernetes](https://kubernetes.io/). A chaque fois que le développeur d'une Application modifie les sources de l'application, Skaffold reconstruit l'image [Docker](https://www.docker.com/) et redéploie l'application (via déploiement des fichiers de configuration [d'objets Kubernetes]()https://kubernetes.io/docs/concepts/overview/object-management-kubectl/overview/).  
 
