@@ -36,7 +36,7 @@ deploy:
       setValues: [5]
         h2.enabled: false 
       setValueTemplates:
-        image.tag: "{{.DIGEST}}" [6]
+        image.tag: "\{\{.DIGEST\}\}" [6]
       overrides:
         ingress: [7]
           secretName: books-api-dev-secret
