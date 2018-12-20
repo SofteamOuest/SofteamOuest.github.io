@@ -1,0 +1,105 @@
+---
+title: "Kubernetes - Skaffold"
+date: 2018-12-20 00:00:00 +001
+layout: post
+author: Mehdi EL KOUHEN
+description: Kubernetes - Skaffold
+excerpt_separator: "<!--more-->"
+---
+
+# Skaffold
+
+[Skaffold](https://skaffold.dev/) est un outil qui améliore l'expérience du développeur [Kubernetes](https://kubernetes.io/). A chaque fois que le développeur d'une Application modifie les sources de l'application, Skaffold reconstruit l'image [Docker](https://www.docker.com/) et redéploie l'application (via déploiement des fichiers de configuration [d'objets Kubernetes]()https://kubernetes.io/docs/concepts/overview/object-management-kubectl/overview/).  
+
+Dans notre cas, nous utilisons Skaffold pour déployer des applications packagées dans des charts [Helm](https://helm.sh). 
+
+## Config Skaffold
+
+La documentation de Skaffold est disponible sur le site [Skaffold](https://skaffold.dev/).
+
+Skaffold fournit différents [exemples de configuration](https://github.com/GoogleContainerTools/skaffold/tree/master/examples)pour des stacks techniques variées. 
+
+La configuration de Skaffold se fait via des fichiers yaml (syntaxe similaire au Manifest Kubernetes).
+
+Exemple de configuration Skaffold extrait du dépôt [books-api](https://github.com/SofteamOuest-Opus/books-api): 
+
+```yaml
+apiVersion: skaffold/v1beta1
+kind: Config
+build:
+  artifacts:
+  - image: registry.k8.wildwidewest.xyz/repository/docker-repository/opus/books-api [1]
+    jibMaven: {} [2]
+deploy:
+  helm:
+    releases:
+    - name: books-api-dev [3]
+      chartPath: ../charts/books-api [4]
+      setValues: [5]
+        h2.enabled: false 
+      setValueTemplates:
+        image.tag: "{{.DIGEST}}" [6]
+      overrides:
+        ingress: [7]
+          secretName: books-api-dev-secret
+          hosts:
+            - books-api-dev.k8.wildwidewest.xyz
+ ```
+ 
+ * [1] Image Docker à déployer
+ * [2] Utilisation de JIB pour le build de l'image Docker   
+ * [3] Nom de la release Helm à déployer
+ * [4] Chemin vers le chart Helm à déployer
+ * [5] Définition de values à passer au déploiement du chart (référence des clefs par un chemin yaml)
+ * [6] Choix du schéma de génération du TAG (TAG = Digest sha256 de l'image)
+ * [7] Définition de values qui surchargent les values du chart (clefs hiéarchiques comme yaml)
+
+## Skaffold & Maven
+
+Skaffold intègre [jib](https://github.com/GoogleContainerTools/jib) pour optimiser la construction des images Docker des application java/maven.
+
+Pour intégrer jib dans skaffold, il faut 
+
+* Intégrer le fragment **jibMaven: {}** dans le fichier de config Skaffold.
+* Intégrer le plugin jib-maven-plugin dans le pom.xml
+
+```xml
+<plugin>
+   <groupId>com.google.cloud.tools</groupId>
+   <artifactId>jib-maven-plugin</artifactId>
+   <version>0.9.11</version>
+   <configuration>
+      <container>
+         <jvmFlags>
+            <jvmFlag>-Djava.security.egd=file:/dev/./urandom</jvmFlag>
+            <jvmFlag>-XX:+UnlockExperimentalVMOptions</jvmFlag>
+            <jvmFlag>-XX:+UseCGroupMemoryLimitForHeap</jvmFlag>
+         </jvmFlags>
+      </container>
+   </configuration>
+</plugin>
+```
+
+De cette manière le couple Skaffold/jib gère la construction optimisée de l'image Docker : il n'est pas nécessaire de définir le fichier Dockerfile.
+
+Pour simplifier la structure des Jenkinsfile, nous avons intégré un Dockerfile au projet : 
+
+* Le Jenkinsfile construit l'image Docker (en utilisant le Dockerfile). 
+* Le Dockerfile définit les étapes de build de l'image Docker.
+
+Avant de faire ce choix, nous faisions du maven first. Dans ce contexte, Le Jenkinsfile appelle une commande maven qui en fonction de la stack sous jacente construit les livrables ou délègue la construction à d'autres outils plus adaptés (comme npm). 
+
+## Execution de Skaffold
+ 
+Skaffold est un outil ligne de commande. Pour démarrer le cycle de BUILD/DEPLOY automatique sur le poste de développeur, il suffit d'exécuter la commande suivante :
+
+```bash
+# skaffold dev
+```
+
+Dans notre cas, nous définissons les tags via des variables d'environnement : 
+
+```bash
+# export TAG=mytag
+# skaffold dev
+```
