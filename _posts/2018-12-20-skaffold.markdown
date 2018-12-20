@@ -45,7 +45,7 @@ deploy:
  ```
  
  * [1] Image Docker à déployer
- * [2] Utilisation de JIB pour le build de l'image Docker   
+ * [2] Utilisation de [jib](https://github.com/GoogleContainerTools/jib) pour le build de l'image Docker   
  * [3] Nom de la release Helm à déployer
  * [4] Chemin vers le chart Helm à déployer
  * [5] Définition de values à passer au déploiement du chart (référence des clefs par un chemin yaml)
@@ -56,7 +56,7 @@ deploy:
 
 Skaffold intègre [jib](https://github.com/GoogleContainerTools/jib) pour optimiser la construction des images Docker des application java/maven.
 
-Pour intégrer jib dans skaffold, il faut 
+Pour intégrer jib dans skaffold, il suffit de : 
 
 * Intégrer le fragment **jibMaven: {}** dans le fichier de config Skaffold.
 * Intégrer le plugin jib-maven-plugin dans le pom.xml
@@ -80,24 +80,17 @@ Pour intégrer jib dans skaffold, il faut
 
 De cette manière le couple Skaffold/jib gère la construction optimisée de l'image Docker : il n'est pas nécessaire de définir le fichier Dockerfile.
 
-Pour simplifier la structure des Jenkinsfile, nous avons intégré un Dockerfile au projet : 
+Pour simplifier la structure des Jenkinsfile, nous avons malgré tout intégré un Dockerfile au projet : 
 
 * Le Jenkinsfile construit l'image Docker (en utilisant le Dockerfile). 
 * Le Dockerfile définit les étapes de build de l'image Docker.
 
-Avant de faire ce choix, nous faisions du maven first. Dans ce contexte, Le Jenkinsfile appelle une commande maven qui en fonction de la stack sous jacente construit les livrables ou délègue la construction à d'autres outils plus adaptés (comme npm). 
+Remarque : Avant de faire ce choix, nous faisions du maven first. Dans ce contexte, Le Jenkinsfile appelle une commande maven qui en fonction de la stack sous jacente construit les livrables ou délègue la construction à d'autres outils plus adaptés (comme npm). 
 
 ## Execution de Skaffold
  
 Skaffold est un outil ligne de commande. Pour démarrer le cycle de BUILD/DEPLOY automatique sur le poste de développeur, il suffit d'exécuter la commande suivante :
 
 ```bash
-# skaffold dev
-```
-
-Dans notre cas, nous définissons les tags via des variables d'environnement : 
-
-```bash
-# export TAG=mytag
 # skaffold dev
 ```
