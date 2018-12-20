@@ -1,9 +1,9 @@
 ---
-title: "Kubernetes - Skaffold"
+title: "Déploiement d'applications Kubernetes avec Skaffold"
 date: 2018-12-20 00:00:00 +001
 layout: post
 author: Mehdi EL KOUHEN
-description: Kubernetes - Skaffold
+description: Déploiement d'applications Kubernetes avec Skaffold
 toc: false
 ---
 
