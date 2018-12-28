@@ -25,7 +25,7 @@ Pour répondre à nos besoin de centralisation des logs et monitoring nous avons
  
 ## Chart elasticstack
 
-Pour déployer la stack dans notre cluster Kubernetes, nous utilisons le [packaging Helm](https://helm.sh/).
+Pour déployer la stack dans notre cluster Kubernetes, nous avons implémenté un chart [Helm](https://helm.sh/).
 
 ### Gestion des dépendances
 
