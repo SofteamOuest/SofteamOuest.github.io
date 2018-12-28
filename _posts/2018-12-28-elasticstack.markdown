@@ -1,9 +1,9 @@
 ---
-title: "Déploiement d'Elastic Stack"
+title: "Déploiement d'Elastic Stack dans Kubernetes"
 date: 2018-12-28 00:00:00 +001
 layout: post
 author: Mehdi EL KOUHEN
-description: Déploiement d'Elastic Stack
+description: Déploiement d'Elastic Stack dans Kubernetes
 toc: false
 ---
 
