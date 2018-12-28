@@ -1,8 +1,8 @@
 # SITE CONFIGURATION
 baseurl: ""
 url: https://softeamouest.github.io
-title: Blog W.W.W
-description: Wild Wide West - Communauté Technique Ouest - Softeam Digital
+title: Blog Softeam Ouest
+description: Wild Wide West - Communauté Technique Softeam Digital Ouest
 
 
 # THEME-SPECIFIC CONFIGURATION
