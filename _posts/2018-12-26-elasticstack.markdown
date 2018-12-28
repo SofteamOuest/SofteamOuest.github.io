@@ -7,7 +7,7 @@ description: Déploiement d'Elastic Stack
 toc: false
 ---
 
-Nous avons intégré la [Stack Elastic](https://www.elastic.co/fr/products) pour gérer la centralisation des logs et monitoring des applications déployées dans notre Usine.
+Dans cet article, nous expliquons comment nous avons intégré la [Stack Elastic](https://www.elastic.co/fr/products) dans notre Usine pour gérer la centralisation des logs et monitoring des applications déployées.
 
 ## Composants Installés
 
@@ -52,6 +52,23 @@ dependencies:
 ```
 
 * [1] metricbeat remonte des métriques du cluster exposées par l'agent [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics).  
+
+Pour trouver les charts, nous avons utilisé *helm search*.
+
+```yaml
+# helm search | grep elastic
+stable/elastic-stack                 	1.1.0        	6                           	A Helm chart for ELK                                        
+stable/elasticsearch                 	1.15.1       	6.5.3                       	Flexible and powerful open source, distributed real-time ...
+stable/elasticsearch-curator         	1.0.1        	5.5.4                       	A Helm chart for Elasticsearch Curator                      
+stable/elasticsearch-exporter        	0.4.1        	1.0.2                       	Elasticsearch stats exporter for Prometheus                 
+stable/fluentd-elasticsearch         	2.0.0        	2.3.2                       	A Fluentd Helm chart for Kubernetes with Elasticsearch ou...
+
+# helm search | grep beat
+stable/auditbeat                     	0.4.1        	6.5.3                       	A lightweight shipper to audit the activities of users an...
+stable/filebeat                      	1.1.1        	6.5.3                       	A Helm chart to collect Kubernetes logs with filebeat       
+stable/heartbeat                     	0.2.0        	6.5.1                       	A Helm chart to periodically check the status of your ser...
+stable/metricbeat                    	0.4.2        	6.5.1                       	A Helm chart to collect Kubernetes logs with metricbeat   
+```
 
 ### Configuration des dépendances
 
