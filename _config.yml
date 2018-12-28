@@ -7,6 +7,8 @@ description: Wild Wide West - Communauté Technique Ouest - Softeam Digital
 
 # THEME-SPECIFIC CONFIGURATION
 theme_settings:
+  # Meta
+  title: Blog W.W.W
   avatar: assets/images/abeille.jpeg
   favicon: assets/favicon.ico
   gravatar:
