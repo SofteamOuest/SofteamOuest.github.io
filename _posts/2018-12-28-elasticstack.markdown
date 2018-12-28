@@ -7,7 +7,9 @@ description: Déploiement d'Elastic Stack
 toc: false
 ---
 
-Dans cet article, nous expliquons comment nous avons intégré la [Stack Elastic](https://www.elastic.co/) dans notre Usine pour gérer la centralisation des logs et monitoring des applications déployées.
+Dans cet article, nous expliquons comment nous avons intégré la [Stack Elastic](https://www.elastic.co/) dans notre Usine pour gérer la centralisation des logs et monitoring des applications déployées. 
+
+L'URL de notre kibana est https://kibana.k8.wildwidewest.xyz/. L'accès est sécurisé via login/password. N'hésitez pas à me le demander.
 
 ## Composants Elastic Stack
 
