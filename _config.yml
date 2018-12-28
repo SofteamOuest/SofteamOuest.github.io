@@ -14,8 +14,7 @@ theme_settings:
   # Header and footer text
   header_text: "<p>Blog de la Communauté Technique Ouest - Softeam Digital</p>\n"
   header_text_feature_image: assets/img/pexels/triangular.jpeg
-  footer_text: 'Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type
-    on Strap</a>
+  footer_text: 'Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
 
   # Icons
   rss: true  # Make sure you created a feed.xml with feed.xml layout
