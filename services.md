@@ -17,5 +17,5 @@ Les services sont déployés dans un cluster Kubernetes.
 Pour réaliser nos développements, nous utilisons les outils suivants :
 
 * [Espace de Travail Softeam-Ouest / Slack](https://softeam-ouest.slack.com)
-* [Équipe WildWideWest / Trello](https://trello.com/wildwidewest)
+* [Équipe WildWideWest / JIRA](https://wildwidewest.atlassian.net)
 * [Organisation SofteamOuest / Github](https://github.com/SofteamOuest)
