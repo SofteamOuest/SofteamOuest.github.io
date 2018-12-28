@@ -7,11 +7,11 @@ description: Déploiement d'Elastic Stack
 toc: false
 ---
 
-Dans cet article, nous expliquons comment nous avons intégré la [Stack Elastic](https://www.elastic.co/fr/products) dans notre Usine pour gérer la centralisation des logs et monitoring des applications déployées.
+Dans cet article, nous expliquons comment nous avons intégré la [Stack Elastic](https://www.elastic.co/) dans notre Usine pour gérer la centralisation des logs et monitoring des applications déployées.
 
-## Composants Elastic Stack comporte
+## Composants Elastic Stack
 
-Elastic Stack est composé de différnets composants; composants qui répondent à des besoins variés.
+Elastic Stack est composé de différents [composants]((https://www.elastic.co/fr/products) qui répondent à des besoins variés.
 
 Pour répondre à nos besoin de centralisation des logs et monitoring nous avons choisi d'installer les composants suivants :
 
