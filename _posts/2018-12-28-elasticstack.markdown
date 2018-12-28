@@ -27,6 +27,8 @@ Pour répondre à nos besoin de centralisation des logs et monitoring nous avons
 
 Pour déployer la stack dans notre cluster Kubernetes, nous avons implémenté un chart [Helm](https://helm.sh/).
 
+Le chart est disponible dans le répertoire elasticstack du dépôt [Github](https://github.com/SofteamOuest-Opus/charts).
+
 ### Gestion des dépendances
 
 Notre chart se limite en grande partie à référencer (via le fichier *requirements.yaml*) les charts à déployer.
