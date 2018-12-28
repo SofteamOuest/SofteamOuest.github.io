@@ -1,6 +1,6 @@
 ---
 title: "Déploiement d'Elastic Stack"
-date: 2018-12-26 00:00:00 +001
+date: 2018-12-28 00:00:00 +001
 layout: post
 author: Mehdi EL KOUHEN
 description: Déploiement d'Elastic Stack
@@ -9,18 +9,18 @@ toc: false
 
 Dans cet article, nous expliquons comment nous avons intégré la [Stack Elastic](https://www.elastic.co/fr/products) dans notre Usine pour gérer la centralisation des logs et monitoring des applications déployées.
 
-## Composants Installés
+## Composants Elastic Stack comporte
 
-La Stack Elastic comporte un grand nombre de composants à installer; composants qui répondent à des besoins variés.
+Elastic Stack est composé de différnets composants; composants qui répondent à des besoins variés.
 
 Pour répondre à nos besoin de centralisation des logs et monitoring nous avons choisi d'installer les composants suivants :
 
-* filebeat : remontée de logs fichiers vers elasticsearch
-* metricbeat  : remontée de métriques applicatives et système vers elasticsearch
-* elasticsearch : base de données de la Suite Elastic
-* kibana : IHM d'analyse des données (log + monitoring)
-* elasticsearch-curator : suppression des vieux index elasticsearch (> 1 semaine) 
-
+* [filebeat](https://github.com/helm/charts/tree/master/stable/filebeat) : remontée de logs fichiers vers elasticsearch
+* [metricbeat](https://github.com/helm/charts/tree/master/stable/metricbeat) : remontée de métriques applicatives et système vers elasticsearch
+* [elasticsearch](https://github.com/helm/charts/tree/master/stable/elasticsearch) : base de données de la Suite Elastic
+* [elasticsearch-curator](https://github.com/helm/charts/tree/master/stable/elasticsearch-curator) : suppression des index elasticsearch anciens (> 1 semaine)
+* [kibana](https://github.com/helm/charts/tree/master/stable/kibana) : IHM d'analyse des données (log + monitoring)
+ 
 ## Chart elasticstack
 
 Pour déployer la stack dans notre cluster Kubernetes, nous utilisons le [packaging Helm](https://helm.sh/).
