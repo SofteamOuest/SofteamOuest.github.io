@@ -55,7 +55,7 @@ dependencies:
 
 Pour trouver les charts, nous avons utilisé *helm search*.
 
-```yaml
+```bash
 # helm search | grep elastic
 stable/elastic-stack                 	1.1.0        	6                           	A Helm chart for ELK                                        
 stable/elasticsearch                 	1.15.1       	6.5.3                       	Flexible and powerful open source, distributed real-time ...
