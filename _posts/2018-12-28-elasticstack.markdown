@@ -9,11 +9,11 @@ toc: false
 
 Dans cet article, nous expliquons comment nous avons intégré la [Stack Elastic](https://www.elastic.co/) dans notre Usine pour gérer la centralisation des logs et monitoring des applications déployées. 
 
-L'URL de notre kibana est https://kibana.k8.wildwidewest.xyz/. L'accès est sécurisé via login/password. N'hésitez pas à me le demander.
+L'URL de notre kibana est [https://kibana.k8.wildwidewest.xyz](https://kibana.k8.wildwidewest.xyz/). L'accès est sécurisé via login/password. N'hésitez pas à me le demander.
 
 ## Composants Elastic Stack
 
-Elastic Stack est composé de différents [composants]((https://www.elastic.co/fr/products) qui répondent à des besoins variés.
+Elastic Stack est composé de différents [composants](https://www.elastic.co/fr/products) qui répondent à des besoins variés.
 
 Pour répondre à nos besoin de centralisation des logs et monitoring nous avons choisi d'installer les composants suivants :
 
