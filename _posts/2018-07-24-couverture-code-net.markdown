@@ -4,6 +4,7 @@ date: "2018-07-24 23:59:00 Z"
 layout: post
 author: Yvan Razafindramanana
 description: Couverture de code .Net
+tags: [ ".NET" ]
 excerpt_separator: "<!--more-->"
 ---
 

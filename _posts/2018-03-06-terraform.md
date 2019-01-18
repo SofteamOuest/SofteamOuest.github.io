@@ -4,6 +4,7 @@ date: "2018-03-06 00:00:00 Z"
 layout: post
 description: Terraform
 img: software-factory.jpg
+tags: [ "Usine Logicielle", "Terraform" ]
 author: Victor SALAUN
 ---
 

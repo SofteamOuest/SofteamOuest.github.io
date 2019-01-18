@@ -3,6 +3,7 @@ title: Mise en place d'un nouveau Projet dans l'Usine
 date: "2018-09-07 00:00:00 Z"
 layout: post
 author: Mehdi EL KOUHEN
+tags: [ "Usine Logicielle" ]
 description: Mise en place d'un nouveau Projet dans l'Usine
 toc: false
 ---

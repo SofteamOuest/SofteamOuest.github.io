@@ -4,6 +4,7 @@ date: 2018-12-28 00:00:00 +001
 layout: post
 author: Mehdi EL KOUHEN
 description: Déploiement d'Elastic Stack dans Kubernetes
+tags: [ "Centralisation des Logs", "Kubernetes" ]
 toc: false
 ---
 

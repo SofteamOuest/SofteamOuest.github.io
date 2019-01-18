@@ -4,6 +4,7 @@ date: 2018-09-18 00:00:00 +001
 layout: post
 author: Yvan Razafindramanana
 description: Injection de dépendances dans les Azure Functions
+tags: [ ".NET" ]
 excerpt_separator: "<!--more-->"
 ---
 
