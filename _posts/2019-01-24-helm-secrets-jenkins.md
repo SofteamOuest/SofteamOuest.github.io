@@ -21,7 +21,7 @@ Dans ce Post, nous proposons une manière de gérer les secrets dans un contexte
 Ce post est structuré en 3 parties : 
 
 * Présentation de l'outil utilisé pour le déploiement d'applications
-* Mise en place d'un déploiement "avec gestion de secrets" sur le poste de Dev
+* Mise en place d'un déploiement "avec gestion de secrets" sur le Poste de Dev
 * Mise en place d'un déploiement "avec gestion de secrets" sur Jenkins
 
 ## Helm
@@ -103,7 +103,7 @@ Dans notre cas, Jenkins est déployé dans le cluster. Il est exécuté via un c
 
 Comme la clef PGP ne peut pas être utilisée sans mot de passe, il n'est pas risqué de la gérer en clair dans Jenkins. Nous stockons donc la clef dans un fichier de configuration géré par Jenkins et nous injectons (à l'exécution) la clef (via *configFileProvider*) dans le job Jenkins de déploiement du chart Helm
 
-Le *configFileProvider* copie le fichier de config identifié *pgp_helm_key* dans le job Jenkins (chemin: *pgp.asc*).
+Le *configFileProvider* copie le fichier de config identifié *pgp_helm_key* dans le conteneur de BUILD Jenkins (chemin: *pgp.asc*).
 
 ````groovy
 configFileProvider([configFile(fileId: 'pgp_helm_key', targetLocation: "pgp.asc")]) {
