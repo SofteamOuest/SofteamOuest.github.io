@@ -46,7 +46,7 @@ L'intérêt du chiffrement des fichiers de secrets est la possibilité de les st
 
 ## Déploiement Poste de Dev
 
-La mise en place du déploiement "Poste de Dev" passe par la configurations des outils (PGP, SOPS), la création d'un fichier de secrets et le déploiement d'un package Helm en prenant en compte le fichier de secrets.
+La mise en place du déploiement "Poste de Dev" passe par la configurations des outils (PGP, SOPS), la création d'un fichier de Secrets et le déploiement d'un package Helm en prenant en compte le fichier de Secrets.
 
 ### Création de la clef PGP
 
@@ -69,15 +69,15 @@ creation_rules:
   - pgp: '59D14BD4108D748C3E9FF048EB31F93C01C4EDDC'
 ````
 
-### Création d'un fichier de secrets
+### Création d'un fichier de Secrets
 
-La création d'un fichier de secrets se faits via *sops*. Le fichier créé est un fichier comportant uniquement des métadonnées SOPS nécessaires pour le chiffrement/déchiffrement.
+La création d'un fichier de Secrets se faits via *sops*. Le fichier créé est un fichier comportant uniquement des métadonnées SOPS nécessaires pour le chiffrement/déchiffrement.
 
 ````bash
 > sops -i -e secrets.yaml
 ````
 
-Le fichier de secrets est ensuite modifiable soit directement via *sops* soit via helm secrets. Les deux outils fonctionnent comme des éditeurs "lignes de commande" (exemple : vi).
+Le fichier de Secrets est ensuite modifiable soit directement via *sops* soit via helm secrets. Les deux outils fonctionnent comme des éditeurs "lignes de commande" (exemple : vi).
 
 ````bash
 # Edition via sops
@@ -87,7 +87,7 @@ Le fichier de secrets est ensuite modifiable soit directement via *sops* soit vi
 ````
 ### Déploiement du Chart Helm
 
-Comme montré par le fragment de code ci-dessous, le déploiement d'un chart Helm avec secrets se fait via "helm secrets install" (et non helm install). En effet, "helm secrets" déchiffre le fichier de secrets avant déploiement, déploie le chart puis supprime le fichier de secrets après déploiement.
+Comme montré par le fragment de code ci-dessous, le déploiement d'un chart Helm avec secrets se fait via "helm secrets install" (et non helm install). En effet, "helm secrets" déchiffre le fichier de Secrets avant déploiement, déploie le chart puis supprime le fichier de Secrets après déploiement.
 
 ````bash
 # Installation du chart books-api
