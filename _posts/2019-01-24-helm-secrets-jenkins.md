@@ -30,7 +30,7 @@ Un Chart (ou Package) Helm contient :
 L'installation d'un Chart se fait via la ligne de commande *helm*. Dans l'exemple ci-dessous nous surchargeons le fichier values.yaml pour adapter le déploiement à l'environnement de RE7.
 
 ````bash
-> Installation du chart books-api (trouvé dans le repository softeam-charts)
+# Installation du chart books-api (trouvé dans le repository softeam-charts)
 > helm install --values RE7/values.yaml softeam-charts/books-api 
 ````
 
@@ -72,10 +72,11 @@ La création d'un fichier de secrets se faits via *sops*. Le fichier créé est 
 Le fichier de secrets est ensuite modifiable soit directement via *sops* soit via helm secrets. Les deux outils fonctionnent comme des éditeurs "lignes de commande" (exemple : vi).
 
 ````bash
+# Edition via sops
 > sops secrets.yaml
+# Equivalent via helm secrets
 > helm secrets secrets.yaml
 ````
-
 ### Déploiement du Chart Helm
 
 Comme montré par le fragment de code ci-dessous, le déploiement d'un chart Helm avec secrets se fait via "helm secrets install" (et non helm install). En effet, "helm secrets" déchiffre le fichier de secrets avant déploiement, déploie le chart puis supprime le fichier de secrets après déploiement.
@@ -84,7 +85,6 @@ Comme montré par le fragment de code ci-dessous, le déploiement d'un chart Hel
 # Installation du chart books-api
 > helm secrets install --values RE7/secrets.yaml softeam-charts/books-api 
 ````
-
 ## Déploiement Jenkins
 
 ### Job Jenkins de Déploiement
