@@ -46,6 +46,8 @@ L'intérêt du chiffrement des fichiers de secrets est la possibilité de les st
 
 ## Déploiement Poste de Dev
 
+La mise en place du déploiement "Poste de Dev" passe par la configurations des outils (PGP, SOPS), la création d'un fichier de secrets et le déploiement d'un package Helm en prenant en compte le fichier de secrets.
+
 ### Création de la clef PGP
 
 La génération de la clef se fait via pgp (gpg sur ubuntu).
@@ -92,6 +94,8 @@ Comme montré par le fragment de code ci-dessous, le déploiement d'un chart Hel
 > helm secrets install --values RE7/secrets.yaml softeam-charts/books-api 
 ````
 ## Déploiement Jenkins
+
+La mise en place du déploiement "Jenkins" nécessite de sécuriser la gestion de la clef PGP (et du mot de passe de la clef) dans le serveur Jenkins et dans les Jobs de déploiement.
 
 ### Job Jenkins de Déploiement
 
