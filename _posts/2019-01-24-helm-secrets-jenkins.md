@@ -20,7 +20,7 @@ Dans ce Post, nous proposons une manière de gérer les secrets dans un contexte
 
 ## Méthodologie
 
-Nous déployons nos applications avec Helm https://helm.sh/. Helm est une solution extensible (via des plugins) de packaging d'applications Kubernetes.
+Nous déployons nos applications avec [Helm](https://helm.sh/). Helm est une solution extensible (via des plugins) de packaging d'applications Kubernetes.
  
 Un Chart (ou Package) Helm contient : 
 
@@ -34,7 +34,7 @@ L'installation d'un Chart se fait via la ligne de commande *helm*. Dans l'exempl
 > helm install --values RE7/values.yaml softeam-charts/books-api 
 ````
 
-Le plugin *secrets* de Helm gère les fichiers de secrets. Le plugin *secrets* est basé sur l'outil *SOPS* https://github.com/mozilla/sops pour le chiffrement des fichiers de secret. L'outil *SOPS* chiffre les fichiers en se basant sur le standard PGP (Pretty Good Privacy) de chiffrement.
+Le plugin *secrets* de Helm gère les fichiers de secrets. Le plugin *secrets* est basé sur l'outil [SOPS](https://github.com/mozilla/sops) pour le chiffrement des fichiers de secret. L'outil *SOPS* chiffre les fichiers en se basant sur le standard PGP (Pretty Good Privacy) de chiffrement.
 
 L'intérêt du chiffrement des fichiers de secrets est la possibilité de les stocker directement dans GIT avec les scripts de déploiement. Et donc les rendre facilement accessibles aux Jobs Jenkins de déploiement.
 
@@ -89,7 +89,7 @@ Comme montré par le fragment de code ci-dessous, le déploiement d'un chart Hel
 
 ### Job Jenkins de Déploiement
 
-Nous implémentons nos Jobs Jenkins via le plugin https://github.com/jenkinsci/kubernetes-plugin. Ainsi, l'exécution d'un Job est réalisé par un agent Jenkins déployé dans le cluster Kubernetes.
+Nous implémentons nos Jobs Jenkins via le plugin [kubernetes-plugin](https://github.com/jenkinsci/kubernetes-plugin). Ainsi, l'exécution d'un Job est réalisé par un agent Jenkins déployé dans le cluster Kubernetes.
 
 Dans notre cas, Jenkins est déployé dans le cluster. Il est exécuté via un compte de service kubernetes qui doit avoir le droit de réaliser des déploiements.
 
@@ -115,4 +115,4 @@ withCredentials([string(credentialsId: 'pgp_helm_pwd', variable: 'pgp_helm_pwd')
 
 ### Exemple Complet
 
-L'exemple complet est disponible sur Github https://github.com/SofteamOuest-SoftwareFactory/chart-run.
+L'exemple complet est disponible sur le dépôt [chart-run](https://github.com/SofteamOuest-SoftwareFactory/chart-run).
