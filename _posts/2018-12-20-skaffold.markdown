@@ -4,7 +4,7 @@ date: 2018-12-20 00:00:00 +001
 layout: post
 author: Mehdi EL KOUHEN
 description: Déploiement d'applications Kubernetes avec Skaffold
-tags: [ "Kubernetes" ]
+tags: [ "Skaffold", "Kubernetes" ]
 toc: false
 ---
 
