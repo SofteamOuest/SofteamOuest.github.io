@@ -95,7 +95,9 @@ Dans notre cas, Jenkins est déployé dans le cluster. Il est exécuté via un c
 
 ### Gestion de la clef PGP
 
-Comme la clef PGP ne peut pas être utilisée sans mot de passe, il n'est pas risqué de la gérer en clair dans Jenkins. Nous stockons donc la clef dans un fichier de configuration géré par Jenkins et nous injectons (à l'exécution) la clef (via *configFileProvider*) dans le job Jenkins de déploiement du chart Helm.
+Comme la clef PGP ne peut pas être utilisée sans mot de passe, il n'est pas risqué de la gérer en clair dans Jenkins. Nous stockons donc la clef dans un fichier de configuration géré par Jenkins et nous injectons (à l'exécution) la clef (via *configFileProvider*) dans le job Jenkins de déploiement du chart Helm
+
+Le *configFileProvider* copie le fichier de config identifié *pgp_helm_key* dans le job Jenkins (chemin: *pgp.asc*).
 
 ````groovy
 configFileProvider([configFile(fileId: 'pgp_helm_key', targetLocation: "pgp.asc")]) {
@@ -106,6 +108,8 @@ configFileProvider([configFile(fileId: 'pgp_helm_key', targetLocation: "pgp.asc"
 ### Gestion du mot de passe de la clef
 
 Le mot de passe de la clef doit être géré par Jenkins comme un secret. Nous stockons donc le mot de passe dans un Credential Jenkins et nous injectons le mot de passe (via *withCredentials*) dans le job Jenkins de déploiement du chart Helm.
+
+La commande *withCredentials* génère une variable d'environnement *pgp_helm_pwd* accessible dans le bloc de code associé.
 
 ````groovy
 withCredentials([string(credentialsId: 'pgp_helm_pwd', variable: 'pgp_helm_pwd')]) {
