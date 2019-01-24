@@ -18,9 +18,15 @@ Dans ce Post, nous proposons une manière de gérer les secrets dans un contexte
 * Jenkins est déployé dans Kubernetes
 * Les déploiements sont réalisés via Jenkins
 
-## Méthodologie
+Ce post est structuré en 3 parties : 
 
-Nous déployons nos applications avec [Helm](https://helm.sh/). Helm est une solution extensible (via des plugins) de packaging d'applications Kubernetes.
+* Présentation de l'outil utilisé pour le déploiement d'applications
+* Mise en place d'un déploiement "avec gestion de secrets" sur le poste de Dev
+* Mise en place d'un déploiement "avec gestion de secrets" sur Jenkins
+
+## Helm
+
+Nous déployons nos applications avec [Helm](https://helm.sh/) : Helm est une solution extensible (via des plugins) de packaging d'applications Kubernetes.
  
 Un Chart (ou Package) Helm contient : 
 
