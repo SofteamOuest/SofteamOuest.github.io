@@ -1,9 +1,9 @@
 ---
-title: "Gestion de secrets dans Kubernetes"
+title: "Gestion de secrets & Déploiement Kubernetes"
 date: 2019-01-24 00:00:00 +001
 layout: post
 author: Mehdi EL KOUHEN
-description: Gestion de secrets dans Kubernetes
+description: Gestion de secrets & Déploiement Kubernetes
 tags: [ "Helm", "Kubernetes" ]
 toc: false
 ---
