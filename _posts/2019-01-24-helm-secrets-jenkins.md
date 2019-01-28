@@ -44,8 +44,7 @@ Le plugin *secrets* de Helm gère les fichiers de secrets. Le plugin *secrets* e
 
 L'intérêt du chiffrement des fichiers de secrets est la possibilité de les stocker directement dans GIT avec les scripts de déploiement. Et donc les rendre facilement accessibles aux Jobs Jenkins de déploiement.
 
-## Déploiement Poste de Dev
-
+## Déploiement Poste de De
 La mise en place du déploiement "Poste de Dev" passe par la configurations des outils (PGP, SOPS), la création d'un fichier de Secrets et le déploiement d'un package Helm en prenant en compte le fichier de Secrets.
 
 ### Création de la clef PGP
